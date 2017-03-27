@@ -1,0 +1,225 @@
+// all custom styles for the site
+
+$side-nav-width: 10em;
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  margin-right: $side-nav-width;
+  padding-left: $margin;
+  padding-right: $margin;
+  text-align: center;
+}
+.side-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-content-upper;
+  width: $side-nav-width;
+  background-color: $light-grey;
+  text-align: right;
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    overflow-y: auto;
+  }
+  &__item {
+    display: block;
+  }
+  &__link {
+    display: block;
+    padding: ($side-nav-width/8 $side-nav-width/6);
+    @include transition;
+    &:hover {
+      padding-right: ($side-nav-width/5);
+      color: $dark-grey;
+    }
+  }
+}
+
+.intro {
+  color: $white;
+  background-image: url('../img/bg/bg.jpg');
+  @include background-attributes;
+}
+.images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  &__text {
+    width: 33.33%;
+    padding-left: ($margin*2);
+    padding-right: ($margin*2);
+    text-align: left;
+  }
+  &__images {
+    position: relative;
+    width: 66.66%;
+    height: 100%;
+    line-height: 0;
+    .bg-image-ratio {
+      display: inline-block;
+      width: 50%;
+    }
+  }
+}
+
+.image-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  &__item {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    @include background-attributes;
+    &:nth-child(1){ top: 0; left: 0; }
+    &:nth-child(2){ top: 0; right: 0; }
+    &:nth-child(3){ bottom: 0; left: 0; }
+    &:nth-child(4){ bottom: 0; right: 0; }
+  }
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  &--max-width {
+    max-width: $xxxlarge;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &--center { align-items: center; }
+  .column--1of4 { width: 25%; }
+  .column--1of3 { width: 33.33%;}
+  .column--1of2 { width: 50%; }
+  .column--2of3 { width: 66.66%; }
+  .column--3of4 { width: 75%; }
+  &--gutters {
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    .column--1of4 { width: 25%; }
+    .column--1of3 { width: 31.333333333%;}
+    .column--1of2 { width: 47.75%; }
+    .column--2of3 { width: 66.66%; }
+    .column--3of4 { width: 75%; }
+  }
+}
+
+.border {
+  border: 1px solid rgba($black, .15);
+  &--thin    { border-width: 1px; }
+  &--normal  { border-width: 2px; }
+  &--thick   { border-width: 3px; }
+  &--dark    { border-color: rgba($black, .5); }
+  &--orange  { border-color: $se-orange; }
+  &--radius  { border-radius: 4px; }
+  &--round   { border-radius: 999999999em; }
+}
+.padding {
+  &--smaller { padding: 1.2em 1.5em; }
+  &--small   { padding: 1.5em 2em; }
+  &--medium  { padding: 2em 2.488em; }
+  &--large   { padding: 2.488em 3.375em; }
+}
+
+.swatches {
+  line-height: 0;
+}
+.swatch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: .25em;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  &--small {
+    width: 50px;
+    height: 50px;
+  }
+  &:after {
+    content: 'copy hexcode';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -37px;
+    display: block;
+    height: 37px;
+    color: $white;
+    line-height: 37px;
+    font-size: .8em;
+    @include transition;
+  }
+  &:hover:after{
+    bottom: 0;
+    background-color: rgba($black, .25);
+  }
+  &:active:after{content: 'copied';}
+}
+
+.square {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  background-color: $white;
+}
+
+.line {
+  display: inline-block;
+  width: 100%;
+  background-color: $se-orange;
+  &--thin   { height: 1px; }
+  &--normal { height: 2px; }
+  &--thick  { height: 3px; }
+}
+
+.shadow { box-shadow: 0px 8px 44px 0px rgba($black, .15); }
+
+.cap {
+  display: inline-block;
+  width: 100%;
+  height: 1em;
+  border-radius: 1em;
+  background-color: rgba($black, .75);
+}
+
+
+// ---------- Section styles ----------
+
+.invert-text { color: $white; }
+.bg {
+  &--light-grey { background-color: $light-grey; }
+  &--dark-grey  { background-color: $dark-grey; }
+  &--black      { background-color: $black; }
+}
+
+
+// ---------- button ----------
+
+.btn {
+  @include transition;
+  display:inline-block;
+  padding: 1.2em 2.488em;
+  border: 1px solid $se-orange;
+  border-radius: 4px;
+  letter-spacing: .015em;
+  &:hover {
+    color: white;
+    background-color: $se-orange;
+    text-decoration: none;
+  }
+  * + & { margin-top: 1em; }
+}

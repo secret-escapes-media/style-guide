@@ -207,7 +207,7 @@ $side-nav-width: 10em;
 }
 
 
-// ---------- button ----------
+// ---------- BUTTON ----------
 
 .btn {
   @include transition;
@@ -222,4 +222,63 @@ $side-nav-width: 10em;
     text-decoration: none;
   }
   * + & { margin-top: 1em; }
+}
+
+
+// ---------- SVG TITLES ----------
+
+.svg-title {
+  max-width: $medium;
+  margin-left: auto;
+  margin-right: auto;
+  svg {
+    width:100%;
+    display:block;
+    g {
+      // hide all layers
+      opacity: 0;
+      // each layer has own keyframe which shows layer after the next
+      // It all then repeats in a 12 second cycle
+      $animation-time: 15s;
+      &:nth-child(1) { animation: hideshow-layer-1 $animation-time ease infinite; }
+      &:nth-child(2) { animation: hideshow-layer-2 $animation-time ease infinite; }
+      &:nth-child(3) { animation: hideshow-layer-3 $animation-time ease infinite; }
+      &:nth-child(4) { animation: hideshow-layer-4 $animation-time ease infinite; }
+      &:nth-child(5) { animation: hideshow-layer-5 $animation-time ease infinite; }
+    }
+  }
+}
+@keyframes hideshow-layer-1 {
+  0%   { opacity: 1; }
+  15%  { opacity: 1; }
+  20%  { opacity: 0; }
+  95%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hideshow-layer-2 {
+  15%  { opacity: 0; }
+  20%  { opacity: 1; }
+  35%  { opacity: 1; }
+  40%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes hideshow-layer-3 {
+  35%  { opacity: 0; }
+  40%  { opacity: 1; }
+  55%  { opacity: 1; }
+  60%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes hideshow-layer-4 {
+  55%  { opacity: 0; }
+  60%  { opacity: 1; }
+  75%  { opacity: 1; }
+  80%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes hideshow-layer-5 {
+  75%  { opacity: 0; }
+  80%  { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { opacity: 0; }
 }

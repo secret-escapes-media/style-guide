@@ -128,10 +128,10 @@ $side-nav-width: 10em;
   &--round   { border-radius: 999999999em; }
 }
 .padding {
-  &--smaller { padding: 1.2em 1.5em; }
-  &--small   { padding: 1.5em 2em; }
-  &--medium  { padding: 2em 2.488em; }
-  &--large   { padding: 2.488em 3.375em; }
+  &--smaller { padding: $s2 $s3; }
+  &--small   { padding: $s4 $s5; }
+  &--medium  { padding: $s5 $s6; }
+  &--large   { padding: $s6 $s8; }
 }
 
 .swatches {
@@ -211,7 +211,7 @@ $side-nav-width: 10em;
 .btn {
   @include transition;
   display:inline-block;
-  padding: 1.2em 2.488em;
+  padding: $s2 $s6;
   border: 1px solid $se-orange;
   border-radius: 4px;
   letter-spacing: .015em;
